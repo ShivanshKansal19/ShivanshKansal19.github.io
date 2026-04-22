@@ -45,11 +45,12 @@ abandonment.
 ● Introduction to Machine Learning by NPTEL
 
 ## EDUCATION
-UTTRAKHAND TECHNICAL UNIVERSITY Dehradun, Uttarakhand
-Bachelor of Engineering, Major in Computer Science 2022-2026
+UTTRAKHAND TECHNICAL UNIVERSITY Dehradun, Uttarakhand \
+Bachelor of Engineering, Major in Computer Science 2022-2026 \
 Relevant Coursework: DSA, OOPS, DBMS, Computer Networks, Operating Systems, Computer Architecture
 
-ST. MARY’S SR. SEC. SCHOOL, JWALAPUR Haridwar, Uttarakhand
+
+ST. MARY’S SR. SEC. SCHOOL, JWALAPUR Haridwar, Uttarakhand \
 Higher Secondary Class XII 2021-2022
 
 ## HOBBIES & INTERESTS
