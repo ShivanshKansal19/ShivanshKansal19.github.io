@@ -1,5 +1,5 @@
-# <p align="center">SHIVANSH KANSAL</p>
-### <p align="center">India • shivanshkansal19@gmail.com • + 91 9389872329</p>
+# SHIVANSH KANSAL
+### India • shivanshkansal19@gmail.com • + 91 9389872329
 
 ## ABOUT
 A highly motivated and detail-oriented Computer Science graduate with strong analytical skills and a passion for software development.
