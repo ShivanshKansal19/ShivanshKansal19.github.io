@@ -104,9 +104,19 @@
 
         <h3>REAL-TIME CLICKSTREAM ELT PIPELINE FOR E-COMMERCE ANALYTICS</h3>
         <ul>
-            <li><strong>Streaming Architecture & Ingestion:</strong> Designed and implemented a scalable, fault-tolerant ELT pipeline to ingest and process 10,000+ events/second using Apache Kafka, Python, and PySpark.</li>
-            <li><strong>Data Modeling & Governance:</strong> Established a robust ELT process using Snowflake and dbt for complex analytical data models.</li>
-            <li><strong>Performance and Business Impact:</strong> Reduced end-to-end data processing latency by 60% through cluster tuning and SQL optimization.</li>
+            <li>
+                <strong>Streaming Architecture & Ingestion:</strong> Designed and implemented a scalable, fault-tolerant ELT pipeline to ingest and process
+                10,000+ events/second of user clickstream data. Utilized Apache Kafka for message queuing and Python/PySpark to manage data flow
+                from source to staging in a Data Lake (e.g., AWS S3).</li>
+            <li>
+                <strong>Data Modeling & Governance:</strong> Established a robust ELT (Extract, Load, Transform) process where raw data was
+                loaded into Snowflake, then utilized dbt to define, manage, and deploy complex analytical data models.
+            </li>
+            <li>
+                <strong>Performance and Business Impact:</strong> Reduced end-to-end data processing latency by 60% through cluster tuning and optimized SQL
+                queries within Snowflake. This enabled near-real-time business intelligence reporting on key metrics like conversion rates and cart
+                abandonment.
+            </li>
         </ul>
     </div>
 
