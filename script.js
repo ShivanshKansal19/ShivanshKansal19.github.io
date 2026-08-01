@@ -7,24 +7,14 @@ let historyIndex = -1;
 let pendingInput = "";
 
 const commands = {
-  help: `<span class="title">AVAILABLE COMMANDS</span>\n  <code>about</code>      learn a little about me\n  <code>projects</code>   see selected work\n  <code>skills</code>     view my toolkit\n  <code>socials</code>    find me online\n  <code>contact</code>    get in touch\n  <code>resume</code>     download my resume\n  <code>clear</code>      clear the terminal`,
-  about: `<span class="title">ABOUT</span>\nI’m Shiva, a developer who builds useful, thoughtful digital products.\nI enjoy turning ambitious ideas into calm, intuitive experiences.`,
-  projects: `<span class="title">SELECTED PROJECTS</span>\n01  Pulse Analytics  — data visualization platform\n02  Habit            — a kinder habit tracker\n03  Folio Studio     — portfolio builder for creatives\n\nSee more at <a href="https://github.com/your-github-username" target="_blank" rel="noreferrer">github.com/your-github-username ↗</a>`,
-  skills: `<span class="title">TOOLKIT</span>\nJavaScript · TypeScript · React · Node.js · UI / UX`,
-  socials: `<span class="title">FIND ME ONLINE</span>\nGitHub    <a href="https://github.com/your-github-username" target="_blank" rel="noreferrer">github.com/your-github-username ↗</a>\nLinkedIn  <a href="https://www.linkedin.com/in/your-linkedin-username" target="_blank" rel="noreferrer">linkedin.com/in/your-linkedin-username ↗</a>\nX         <a href="https://x.com/your-handle" target="_blank" rel="noreferrer">x.com/your-handle ↗</a>`,
-  contact: `<span class="title">CONTACT</span>\nWant to build something together?\nEmail me at <a href="mailto:hello@example.com">hello@example.com ↗</a>`,
-  resume: `My resume will be available here soon.`,
-  whoami: `shiva — developer, builder, lifelong learner.`,
+  help: `<span class="title">AVAILABLE COMMANDS</span>\n  <code>about</code>      learn a little about me\n  <code>projects</code>   see selected work\n  <code>skills</code>     view my toolkit\n  <code>socials</code>    find me online\n  <code>contact</code>    get in touch\n  <code>resume</code>     open my resume\n  <code>clear</code>      clear the terminal`,
+  about: `<span class="title">ABOUT</span>\nI'm Shivansh Kansal, a Computer Science graduate with a passion for software development.\nI build data-driven web applications and enjoy solving complex problems with thoughtful engineering.`,
+  projects: `<span class="title">SELECTED PROJECTS</span>\n01  TradeNet - Django investment analysis platform with AI insights\n    Reduced loading time by 75% using batch processing and page caching.\n\n02  Real-time Clickstream ELT Pipeline\n    Built a Kafka, PySpark, S3, Snowflake, and dbt pipeline for 10,000+ events/second.\n    Reduced end-to-end data latency by 60% through tuning and optimized SQL.`,
+  skills: `<span class="title">TOOLKIT</span>\nPython | Go | SQL | Django | JavaScript | Git | AWS\n\nAlso: Apache Kafka | PySpark | Snowflake | dbt`,
+  socials: `<span class="title">FIND ME ONLINE</span>\nGitHub    <a href="https://github.com/your-github-username" target="_blank" rel="noreferrer">github.com/your-github-username -&gt;</a>\nLinkedIn  <a href="https://www.linkedin.com/in/your-linkedin-username" target="_blank" rel="noreferrer">linkedin.com/in/your-linkedin-username -&gt;</a>\nX         <a href="https://x.com/your-handle" target="_blank" rel="noreferrer">x.com/your-handle -&gt;</a>`,
+  contact: `<span class="title">CONTACT</span>\nWant to build something together?\nEmail me at <a href="mailto:shivanshkansal19@gmail.com">shivanshkansal19@gmail.com -&gt;</a>`,
+  whoami: `shivansh-kansal - software developer, data enthusiast, lifelong learner.`,
 };
-
-Object.assign(commands, {
-  about: `<span class="title">ABOUT</span>\nI’m Shivansh Kansal, a Computer Science graduate with a passion for software development.\nI build data-driven web applications and enjoy solving complex problems with thoughtful engineering.`,
-  projects: `<span class="title">SELECTED PROJECTS</span>\n01  TradeNet — Django investment analysis platform with AI insights\n    Reduced loading time by 75% using batch processing and page caching.\n\n02  Real-time Clickstream ELT Pipeline\n    Built a Kafka, PySpark, S3, Snowflake, and dbt pipeline for 10,000+ events/second.\n    Reduced end-to-end data latency by 60% through tuning and optimized SQL.`,
-  skills: `<span class="title">TOOLKIT</span>\nPython · Go · SQL · Django · JavaScript · Git · AWS\n\nAlso: Apache Kafka · PySpark · Snowflake · dbt`,
-  contact: `<span class="title">CONTACT</span>\nWant to build something together?\nEmail me at <a href="mailto:shivanshkansal19@gmail.com">shivanshkansal19@gmail.com ↗</a>`,
-  resume: `<span class="title">RESUME</span>\n<a href="Shivansh_Kansal_CV.pdf" target="_blank" rel="noreferrer">Download my resume (PDF) ↗</a>`,
-  whoami: `shivansh-kansal — software developer, data enthusiast, lifelong learner.`,
-});
 
 function print(value, className = "") {
   const line = document.createElement("p");
@@ -36,17 +26,21 @@ function print(value, className = "") {
 function runCommand(rawCommand) {
   const command = rawCommand.trim().toLowerCase();
   if (!command) return;
+
   print(
     `<span class="green">shiva@portfolio</span>:<span class="blue">~</span>$ <span class="entered-command">${command}</span>`,
   );
+
   if (command === "clear") {
     output.innerHTML = initialOutput;
     return;
   }
+
   if (command === "resume") {
-    window.open("Shivansh_Kansal_CV.pdf", "_blank", "noopener");
+    window.open("Shivansh_Kansal_Resume.pdf", "_blank", "noopener");
     return;
   }
+
   print(
     commands[command] ||
       `command not found: <span class="entered-command">${command}</span>\nType <code>help</code> to see available commands.`,
@@ -82,6 +76,7 @@ input.addEventListener("keydown", (event) => {
         : commandHistory[commandHistory.length - 1 - historyIndex];
   }
 });
+
 document.addEventListener("click", (event) => {
   if (!event.target.closest("a, input")) input.focus();
 });
