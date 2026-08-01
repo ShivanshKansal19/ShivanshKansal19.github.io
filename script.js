@@ -1,6 +1,9 @@
 const output = document.querySelector("#output");
 const form = document.querySelector("#terminal-form");
 const input = document.querySelector("#command");
+const commandHistory = [];
+let historyIndex = -1;
+let pendingInput = "";
 
 const commands = {
   help: `<span class="title">AVAILABLE COMMANDS</span>\n  <code>about</code>      learn a little about me\n  <code>projects</code>   see selected work\n  <code>skills</code>     view my toolkit\n  <code>socials</code>    find me online\n  <code>contact</code>    get in touch\n  <code>resume</code>     download my resume\n  <code>clear</code>      clear the terminal`,
@@ -40,8 +43,29 @@ function runCommand(rawCommand) {
 
 form.addEventListener("submit", (event) => {
   event.preventDefault();
+  const submittedCommand = input.value.trim();
+  if (submittedCommand) commandHistory.push(submittedCommand);
   runCommand(input.value);
   input.value = "";
+  historyIndex = -1;
+  pendingInput = "";
+});
+
+input.addEventListener("keydown", (event) => {
+  if (event.key === "ArrowUp" && commandHistory.length) {
+    event.preventDefault();
+    if (historyIndex === -1) pendingInput = input.value;
+    historyIndex = Math.min(historyIndex + 1, commandHistory.length - 1);
+    input.value = commandHistory[commandHistory.length - 1 - historyIndex];
+  }
+
+  if (event.key === "ArrowDown" && historyIndex !== -1) {
+    event.preventDefault();
+    historyIndex -= 1;
+    input.value = historyIndex === -1
+      ? pendingInput
+      : commandHistory[commandHistory.length - 1 - historyIndex];
+  }
 });
 document.addEventListener("click", (event) => {
   if (!event.target.closest("a, input")) input.focus();
