@@ -1,4 +1,5 @@
 const output = document.querySelector("#output");
+const initialOutput = output.innerHTML;
 const form = document.querySelector("#terminal-form");
 const input = document.querySelector("#command");
 const commandHistory = [];
@@ -30,7 +31,7 @@ function runCommand(rawCommand) {
     `<span class="green">shiva@portfolio</span>:<span class="blue">~</span>$ <span class="entered-command">${command}</span>`,
   );
   if (command === "clear") {
-    output.innerHTML = "";
+    output.innerHTML = initialOutput;
     return;
   }
   print(
