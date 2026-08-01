@@ -3,81 +3,51 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="description" content="A terminal-inspired portfolio." />
+    <meta name="description" content="Shiva's terminal portfolio." />
     <title>shiva@portfolio:~</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&display=swap"
+      rel="stylesheet"
+    />
     <link rel="stylesheet" href="styles.css" />
   </head>
   <body>
-    <div class="noise" aria-hidden="true"></div>
-    <main class="shell">
-      <header class="topbar">
-        <a class="brand" href="#home" aria-label="Go home"><span class="brand-dot"></span> shiva@portfolio</a>
-        <nav aria-label="Main navigation">
-          <a href="#about">about</a><a href="#projects">work</a><a href="#contact">contact</a>
-        </nav>
-        <span class="availability"><i></i> available for work</span>
+    <main class="terminal" aria-label="Shiva's interactive portfolio terminal">
+      <header class="terminal-bar">
+        <div class="window-controls" aria-hidden="true">
+          <i></i><i></i><i></i>
+        </div>
+        <p>shiva@portfolio: ~</p>
+        <span>● online</span>
       </header>
 
-      <section id="home" class="hero">
-        <p class="eyebrow">// software developer · india</p>
-        <h1>Building useful things<br />for the <em>internet.</em></h1>
-        <p class="intro">Hi, I’m Shiva. I design and build thoughtful digital experiences with clean code, sharp interfaces, and a little bit of curiosity.</p>
-        <div class="command-card" aria-label="Portfolio command line">
-          <div class="terminal-head"><span></span><span></span><span></span><p>portfolio — zsh</p></div>
-          <div id="terminal-output" class="terminal-output" aria-live="polite">
-            <p><b>Welcome to my portfolio.</b> Type <code>help</code> to get started.</p>
-          </div>
-          <form id="terminal-form" class="terminal-input">
-            <label for="command"><span>shiva@portfolio</span>:<b>~</b>$</label>
-            <input id="command" autocomplete="off" spellcheck="false" autofocus aria-label="Type a portfolio command" />
-          </form>
-        </div>
-        <div class="quick-actions" aria-label="Quick commands">
-          <button data-command="about">about me</button>
-          <button data-command="projects">view projects</button>
-          <button data-command="contact">get in touch</button>
-        </div>
+      <section id="output" class="output" aria-live="polite">
+        <pre class="logo" aria-label="Shiva">
+   _____ __    ____ _    __ ___
+  / ___// /  / / /  _/| |  / //   |
+  \__ \/ /__/ /  / /  | | / // /| |
+ ___/ / /  / / _/ /   | |/ // ___ |
+/____/ /  / / /___/   |___//_/  |_|</pre
+        >
+        <p><span class="green">Welcome to my interactive portfolio.</span></p>
+        <p>Type <code>help</code> to see available commands.</p>
       </section>
 
-      <section id="about" class="section split-section reveal">
-        <div><p class="eyebrow">01 / about</p><h2>Equal parts<br />logic and <em>taste.</em></h2></div>
-        <div class="section-copy">
-          <p>I’m a developer who enjoys taking an idea from its first sketch to a polished, useful product. I care about the details that make software feel calm and intuitive.</p>
-          <p>When I’m not at my desk, I’m usually exploring new tools, collecting design references, or enjoying a great cup of chai.</p>
-          <div class="skills"><span>JavaScript</span><span>TypeScript</span><span>React</span><span>Node.js</span><span>UI / UX</span></div>
-        </div>
-      </section>
-
-      <section id="projects" class="section reveal">
-        <div class="section-heading"><div><p class="eyebrow">02 / selected work</p><h2>Things I’ve <em>made.</em></h2></div><p>Each project starts with a real problem and ends with something people enjoy using.</p></div>
-        <div class="projects-grid">
-          <a class="project project-featured" href="#" aria-label="Open Pulse project">
-            <div class="project-visual visual-pulse"><div class="pulse-window"><small>pulse / analytics</small><strong>12,480</strong><span>monthly signals <b>+24.8%</b></span><div class="chart"><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div></div></div>
-            <div class="project-meta"><div><h3>Pulse Analytics</h3><p>Data visualization platform</p></div><span>↗</span></div>
-          </a>
-          <a class="project" href="#" aria-label="Open Habit project">
-            <div class="project-visual visual-habit"><div class="habit-card"><small>monday, 12 aug</small><b>Good morning, Shiva.</b><div><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div><span>4 of 7 habits complete</span></div></div>
-            <div class="project-meta"><div><h3>Habit</h3><p>A kinder habit tracker</p></div><span>↗</span></div>
-          </a>
-          <a class="project" href="#" aria-label="Open Folio project">
-            <div class="project-visual visual-folio"><div class="folio-lines"><b>FOLIO</b><span>CREATIVE<br />STUDIO</span><i></i><i></i><i></i></div></div>
-            <div class="project-meta"><div><h3>Folio Studio</h3><p>Portfolio builder for creatives</p></div><span>↗</span></div>
-          </a>
-        </div>
-        <p class="project-note">Want to see more? <a href="https://github.com/your-github-username" target="_blank" rel="noreferrer">Browse GitHub ↗</a></p>
-      </section>
-
-      <section id="contact" class="contact reveal">
-        <p class="eyebrow">03 / contact</p>
-        <h2>Let’s make something<br /><em>worth using.</em></h2>
-        <a class="email-link" href="mailto:hello@example.com">hello@example.com <span>↗</span></a>
-        <div class="socials"><a href="https://github.com/your-github-username" target="_blank" rel="noreferrer">GitHub</a><a href="https://www.linkedin.com/in/your-linkedin-username" target="_blank" rel="noreferrer">LinkedIn</a><a href="https://x.com/your-handle" target="_blank" rel="noreferrer">X / Twitter</a></div>
-      </section>
-
-      <footer><span>© <span id="year"></span> Shiva</span><span>built with intent <b>✦</b></span></footer>
+      <form id="terminal-form" class="prompt-line">
+        <label for="command"
+          ><span class="green">shiva@portfolio</span>:<span class="blue">~</span
+          >$</label
+        >
+        <input
+          id="command"
+          autocomplete="off"
+          spellcheck="false"
+          autofocus
+          aria-label="Enter a terminal command"
+        />
+      </form>
     </main>
     <script src="script.js"></script>
   </body>

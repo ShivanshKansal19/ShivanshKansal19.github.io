@@ -1,29 +1,48 @@
-const output = document.querySelector('#terminal-output');
-const form = document.querySelector('#terminal-form');
-const input = document.querySelector('#command');
+const output = document.querySelector("#output");
+const form = document.querySelector("#terminal-form");
+const input = document.querySelector("#command");
 
 const commands = {
-  help: `Available commands: <code>about</code>, <code>projects</code>, <code>socials</code>, <code>contact</code>, <code>clear</code>`,
-  about: `I’m Shiva — a developer focused on crafting useful, considered digital products. <a href="#about">Read more ↓</a>`,
-  projects: `A selection of things I’ve built. <a href="#projects">View projects ↓</a>`,
-  socials: `Find me on <a href="https://github.com/your-github-username" target="_blank">GitHub</a>, <a href="https://www.linkedin.com/in/your-linkedin-username" target="_blank">LinkedIn</a>, and <a href="https://x.com/your-handle" target="_blank">X</a>.`,
-  contact: `Say hello at <a href="mailto:hello@example.com">hello@example.com</a> — I’d love to hear from you.`,
+  help: `<span class="title">AVAILABLE COMMANDS</span>\n  <code>about</code>      learn a little about me\n  <code>projects</code>   see selected work\n  <code>skills</code>     view my toolkit\n  <code>socials</code>    find me online\n  <code>contact</code>    get in touch\n  <code>resume</code>     download my resume\n  <code>clear</code>      clear the terminal`,
+  about: `<span class="title">ABOUT</span>\nI’m Shiva, a developer who builds useful, thoughtful digital products.\nI enjoy turning ambitious ideas into calm, intuitive experiences.`,
+  projects: `<span class="title">SELECTED PROJECTS</span>\n01  Pulse Analytics  — data visualization platform\n02  Habit            — a kinder habit tracker\n03  Folio Studio     — portfolio builder for creatives\n\nSee more at <a href="https://github.com/your-github-username" target="_blank" rel="noreferrer">github.com/your-github-username ↗</a>`,
+  skills: `<span class="title">TOOLKIT</span>\nJavaScript · TypeScript · React · Node.js · UI / UX`,
+  socials: `<span class="title">FIND ME ONLINE</span>\nGitHub    <a href="https://github.com/your-github-username" target="_blank" rel="noreferrer">github.com/your-github-username ↗</a>\nLinkedIn  <a href="https://www.linkedin.com/in/your-linkedin-username" target="_blank" rel="noreferrer">linkedin.com/in/your-linkedin-username ↗</a>\nX         <a href="https://x.com/your-handle" target="_blank" rel="noreferrer">x.com/your-handle ↗</a>`,
+  contact: `<span class="title">CONTACT</span>\nWant to build something together?\nEmail me at <a href="mailto:hello@example.com">hello@example.com ↗</a>`,
+  resume: `My resume will be available here soon.`,
   whoami: `shiva — developer, builder, lifelong learner.`,
 };
 
-function runCommand(value) {
-  const command = value.trim().toLowerCase();
-  if (!command) return;
-  output.insertAdjacentHTML('beforeend', `<p><span class="prompt">shiva@portfolio:~$</span> ${command}</p>`);
-  if (command === 'clear') { output.innerHTML = ''; return; }
-  const response = commands[command] || `command not found: ${command}. Try <code>help</code>.`;
-  output.insertAdjacentHTML('beforeend', `<p class="response">${response}</p>`);
-  output.scrollTop = output.scrollHeight;
+function print(value, className = "") {
+  const line = document.createElement("p");
+  line.className = className;
+  line.innerHTML = value;
+  output.append(line);
 }
 
-form.addEventListener('submit', (event) => { event.preventDefault(); runCommand(input.value); input.value = ''; });
-document.querySelectorAll('[data-command]').forEach((button) => button.addEventListener('click', () => { runCommand(button.dataset.command); input.focus(); }));
-document.addEventListener('click', (event) => { if (!event.target.closest('a, button, input')) input.focus(); });
-document.querySelector('#year').textContent = new Date().getFullYear();
-const observer = new IntersectionObserver((entries) => entries.forEach((entry) => { if (entry.isIntersecting) entry.target.classList.add('visible'); }), { threshold: .13 });
-document.querySelectorAll('.reveal').forEach((element) => observer.observe(element));
+function runCommand(rawCommand) {
+  const command = rawCommand.trim().toLowerCase();
+  if (!command) return;
+  print(
+    `<span class="green">shiva@portfolio</span>:<span class="blue">~</span>$ <span class="entered-command">${command}</span>`,
+  );
+  if (command === "clear") {
+    output.innerHTML = "";
+    return;
+  }
+  print(
+    commands[command] ||
+      `command not found: <span class="entered-command">${command}</span>\nType <code>help</code> to see available commands.`,
+    "response",
+  );
+  window.scrollTo({ top: document.body.scrollHeight, behavior: "smooth" });
+}
+
+form.addEventListener("submit", (event) => {
+  event.preventDefault();
+  runCommand(input.value);
+  input.value = "";
+});
+document.addEventListener("click", (event) => {
+  if (!event.target.closest("a, input")) input.focus();
+});
