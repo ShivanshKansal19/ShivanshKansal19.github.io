@@ -1,15 +1,17 @@
-# CLI Portfolio
+# Shivansh Kansal's Portfolio
 
-A no-build static portfolio designed for GitHub Pages.
+This repository contains my personal portfolio website. It is designed as a full-screen, interactive terminal where visitors can explore my background, projects, technical skills, contact information, and resume through commands.
 
-## Personalize
+Live at [shivanshkansal.me](https://shivanshkansal.me).
 
-Replace the placeholder email, GitHub, LinkedIn, X links, biography, skills, and project links in `index.html`. Update the matching links in `script.js` as well.
+## Commands
 
-## Publish on GitHub Pages
+Type `help` in the terminal to see all available commands:
 
-1. Push this repository to GitHub.
-2. In **Settings → Pages**, set the source to **Deploy from a branch**.
-3. Choose the `main` branch and `/ (root)` folder.
-
-GitHub will serve `index.html` automatically.
+- `about` - learn about me
+- `projects` - view selected projects
+- `skills` - view languages, libraries and frameworks, tools, and databases
+- `socials` - find my social profiles
+- `contact` - get in touch
+- `resume` - open my resume PDF
+- `clear` - restore the initial terminal screen
