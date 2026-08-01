@@ -17,6 +17,15 @@ const commands = {
   whoami: `shiva — developer, builder, lifelong learner.`,
 };
 
+Object.assign(commands, {
+  about: `<span class="title">ABOUT</span>\nI’m Shivansh Kansal, a Computer Science graduate with a passion for software development.\nI build data-driven web applications and enjoy solving complex problems with thoughtful engineering.`,
+  projects: `<span class="title">SELECTED PROJECTS</span>\n01  TradeNet — Django investment analysis platform with AI insights\n    Reduced loading time by 75% using batch processing and page caching.\n\n02  Real-time Clickstream ELT Pipeline\n    Built a Kafka, PySpark, S3, Snowflake, and dbt pipeline for 10,000+ events/second.\n    Reduced end-to-end data latency by 60% through tuning and optimized SQL.`,
+  skills: `<span class="title">TOOLKIT</span>\nPython · Go · SQL · Django · JavaScript · Git · AWS\n\nAlso: Apache Kafka · PySpark · Snowflake · dbt`,
+  contact: `<span class="title">CONTACT</span>\nWant to build something together?\nEmail me at <a href="mailto:shivanshkansal19@gmail.com">shivanshkansal19@gmail.com ↗</a>`,
+  resume: `<span class="title">RESUME</span>\n<a href="Shivansh_Kansal_CV.pdf" target="_blank" rel="noreferrer">Download my resume (PDF) ↗</a>`,
+  whoami: `shivansh-kansal — software developer, data enthusiast, lifelong learner.`,
+});
+
 function print(value, className = "") {
   const line = document.createElement("p");
   line.className = className;
@@ -32,6 +41,10 @@ function runCommand(rawCommand) {
   );
   if (command === "clear") {
     output.innerHTML = initialOutput;
+    return;
+  }
+  if (command === "resume") {
+    window.open("Shivansh_Kansal_CV.pdf", "_blank", "noopener");
     return;
   }
   print(
@@ -63,9 +76,10 @@ input.addEventListener("keydown", (event) => {
   if (event.key === "ArrowDown" && historyIndex !== -1) {
     event.preventDefault();
     historyIndex -= 1;
-    input.value = historyIndex === -1
-      ? pendingInput
-      : commandHistory[commandHistory.length - 1 - historyIndex];
+    input.value =
+      historyIndex === -1
+        ? pendingInput
+        : commandHistory[commandHistory.length - 1 - historyIndex];
   }
 });
 document.addEventListener("click", (event) => {
