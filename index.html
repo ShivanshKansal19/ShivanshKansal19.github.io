@@ -32,13 +32,16 @@
           ><span class="green">shiva@portfolio</span>:<span class="blue">~</span
           >$</label
         >
-        <input
-          id="command"
-          autocomplete="off"
-          spellcheck="false"
-          autofocus
-          aria-label="Enter a terminal command"
-        />
+        <div class="input-container">
+          <input
+            id="command"
+            autocomplete="off"
+            spellcheck="false"
+            autofocus
+            aria-label="Enter a terminal command"
+          />
+          <span id="ghost-hint" class="ghost-hint" aria-hidden="true"></span>
+        </div>
       </form>
     </main>
     <script src="script.js"></script>

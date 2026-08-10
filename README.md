@@ -15,3 +15,6 @@ Type `help` in the terminal to see all available commands:
 - `contact` - get in touch
 - `resume` - open my resume PDF
 - `clear` - restore the initial terminal screen
+
+> **Tip:** Press `Tab` or `Right Arrow` to auto-complete commands and cycle through available suggestions.
+
